@@ -13,13 +13,11 @@
 
 using namespace std;
 
-class SocketIO : DefaultIO {
+class SocketIO : public DefaultIO {
 private:
-    int m_socket;
-    int m_port;
     int m_client;
 public:
-    SocketIO(int socket, int port, int client);
+    SocketIO(int client);
     void write(string data);
     string read();
 };

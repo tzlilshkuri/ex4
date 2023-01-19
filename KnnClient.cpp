@@ -10,6 +10,8 @@
 #include "BuildVector.h"
 #include <vector>
 #include <stdexcept>
+#include "SocketIO.h"
+#include "MyFileReader.h"
 using namespace std;
 
 #define BUFFER_SIZE 4096
@@ -71,48 +73,77 @@ bool KnnClient::isValidFields(vector<string> myVector) {
     return true;
 }
 
-/*
-this function send message to the server.
-*/
-void KnnClient::sendMessage(string message) {
-    int data_len = message.length();
-    int sent_bytes = send(m_socket, message.c_str(), data_len, 0);
-    if (sent_bytes < 0) {
-        throw invalid_argument("error");
-    } 
+void option1(SocketIO sock) {
+    string line;
+    BuildVector bv;
+    vector<string> path;
+    for (int i = 0; i < 2; i++) {
+        cout << sock.read() << endl;
+        getline(cin, line);
+        MyFileReader file1;
+        try {
+            file1.load(line);
+        } catch (invalid_argument& x) {
+            cout << "invalid input" << endl;
+            sock.write("1-");
+            return;
+        }
+        path = bv.splitEnd(line, '/', 1);
+        sock.write(to_string(path[0].size()) + "-" + path[0]);
+        file1.sendFile(sock);
+    }
+}
+
+void option2(SocketIO sock) {
+    string line;
+    cout << sock.read() << endl;
+    getline(cin, line);
+    sock.write(to_string(line.size()) + "-" + line);
+    line = sock.read();
+    if (line != "0-") {
+        cout << line << endl;
+    }
+    sock.write("0-");
 }
 
 /*
 this function open the server.
 */
 void KnnClient::activateClient() {
-    bool myBool= true;
     string line;
     BuildVector buildV;
-    while (myBool) {   
+    SocketIO sock(m_socket);
+    while (true) {
+        cout << sock.read() << endl;
         getline(cin, line);
-        vector<string> myVector = buildV. splitEnd(line, ' ', 2); 
-        if (line == "-1") {
-            sendMessage("-1");
-            break;              
-        }
-        if (!isValidFields(myVector)) {
-            cout << "invalid input" << endl;
+        sock.write(to_string(line.size()) + "-" + line);
+        line = sock.read();
+        sock.write("0-");
+        if (line == "invalid input") {
+            cout << line << endl;
             continue;
         }
-        sendMessage(line);
-        char buffer[BUFFER_SIZE];
-        memset(buffer, 0, BUFFER_SIZE);
-        int expected_data_len = sizeof(buffer);
-        int read_bytes = recv(m_socket, buffer, expected_data_len, 0);
-        if (read_bytes == 0) {
-            throw invalid_argument("there is no message");
+        switch (stoi(line)) {
+        case 1:
+            option1(sock);
+            break;
+        case 2:
+            option2(sock);
+            break;
+        case 3:
+            /* code */
+            break;
+        case 4:
+            /* code */
+            break;
+        case 5:
+            /* code */
+            break;
+        default:
+            close(m_socket);
+            return;
+            break;
         }
-        else if (read_bytes < 0) {
-            throw invalid_argument("error");
-            }
-        else {
-            cout << buffer << endl;
-        }
+
     }
 }

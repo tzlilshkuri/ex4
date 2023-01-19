@@ -6,13 +6,13 @@
 #include <vector>
 #include <sstream>
 #include "Flower.h"
+#include "SocketIO.h"
 using namespace std;
 
 /*
 In this class we scan every line in our file and convert him to flower.
 */
-class MyFileReader
-{
+class MyFileReader{
 private:
     /*
     Our garden.
@@ -21,7 +21,7 @@ private:
     /*
     The file we scan.
     */
-    ifstream m_myFile;
+    fstream m_myFile;
 public:
     /*
     path - the csv file we want to open.
@@ -45,6 +45,14 @@ public:
     This function load the path.
     */
     void load(string path);
+
+    void write(string data);
+
+    bool sendFile(SocketIO socket);
+
+    bool create(string path, DefaultIO* socket, int* vecSize, int test);
+
+    string read();
 };
 
 #endif

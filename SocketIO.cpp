@@ -2,9 +2,7 @@
 
 #define BUFFER_SIZE 4096
 
-SocketIO::SocketIO(int socket, int port, int client) {
-    m_socket = socket;
-    m_port = port;
+SocketIO::SocketIO(int client) {
     m_client = client;
 }
 

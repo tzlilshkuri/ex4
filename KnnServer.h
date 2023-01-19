@@ -9,6 +9,7 @@
 #include <arpa/inet.h>
 #include <unistd.h>
 #include "Garden.h"
+#include <thread>
 
 using namespace std;
 
@@ -17,7 +18,7 @@ class KnnServer {
 private:
     int m_socket;
     int m_port;
-    int m_clint;
+    vector<thread> m_thread_pool;
     Garden m_garden;
 public:
     /*
@@ -26,10 +27,9 @@ public:
     */
     KnnServer(int port);
     /*
-    path - a path to file
     the function load the file and create the socker
     */
-    void load(string path);
+    void load();
     /*
     buffer - the string i want to send
     the function return the string i want to send

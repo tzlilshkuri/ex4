@@ -14,23 +14,23 @@ argv - the arguments that the user enter
 argc - the number of arguments
 */
 int main(int argc, char** argv) {
-    if (argc != 3 ) {
+    if (argc != 2) {
         cout << "invalid number of args" << endl;
         return 0;
     }
-    for (int i = 0; i < strlen(argv[2]); i++) {
-        if (argv[2][i] < '0' || argv[2][i] > '9') {
+    for (int i = 0; i < strlen(argv[1]); i++) {
+        if (argv[1][i] < '0' || argv[1][i] > '9') {
             cout << "invalid port" << endl;
             return 0;
         }  
     }
-    if (!stoi(argv[2])) {
+    if (!stoi(argv[1])) {
         cout << "invalid port" << endl;
         return 0;
     }
     try {
-        KnnServer knnServer(atoi(argv[2]));
-        knnServer.load(argv[1]);
+        KnnServer knnServer(atoi(argv[1]));
+        knnServer.load();
         knnServer.recAndSend();
         }
     catch(invalid_argument& e) {

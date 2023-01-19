@@ -68,3 +68,66 @@ vector<Flower> MyFileReader::getGarden() {
     }
     return m_myGarden;
 }
+
+void MyFileReader::write(string data) {
+    m_myFile << data;
+}
+
+string MyFileReader::read() {
+    string line;
+    getline(m_myFile, line);
+    return line;
+}
+
+bool MyFileReader::sendFile(SocketIO socket) {
+    string line;
+    while (getline(m_myFile, line)) {
+        socket.write(to_string(line.size()) + "-" + line);
+        if (socket.read() == "invalid input") {
+            return false;
+        }
+    }
+    socket.write("1-");
+    cout << socket.read() << endl;
+    return true;
+}
+
+int validLine(vector<string> vec, int test) {
+    BuildVector bv;
+    if (vec[0] != "AUC" && vec[0] != "MIN" && vec[0] != "CHB" 
+    && vec[0] != "MAN" && vec[0] != "CAN" && !test) {
+        return 0;
+    }
+    return bv.makeNewVector(vec[1 - test], ',').size();
+}
+
+bool MyFileReader::create(string path, DefaultIO* socket, int* vecSize, int test) {
+    m_myFile.open(path, ios::in | ios::out);
+    string line = "";
+    BuildVector bv;
+    vector<string> vec;
+    while (true) {
+        line = socket->read();
+        if (line == "1-") {
+            break;
+        }
+        if (line == "0-") {
+            socket->write("invalid input");
+            remove(path.c_str());
+            return false;
+        }
+        line = line.substr(line.find('-') + 1);
+        vec = bv.splitEnd(line, ',', 1 - test);
+        if (*vecSize == -1) {
+            *vecSize = validLine(vec, test);
+        }
+        if (validLine(vec, test) && *vecSize == validLine(vec, test)) {
+            socket->write("1");
+        } else {
+            socket->write("invalid input");
+            remove(path.c_str());
+            return false;
+        }
+    }
+    return true;
+}
