@@ -13,7 +13,7 @@ bool validK(string k) {
     for (int i = 0; i < k.size(); i++) {
         if (k[i] < '0' || k[i] > '9') {
             return false;
-            }  
+        }  
     }
     if (k == "" || !stoi(k)) {
         return false;

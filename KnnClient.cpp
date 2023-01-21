@@ -12,6 +12,7 @@
 #include <stdexcept>
 #include "SocketIO.h"
 #include "MyFileReader.h"
+#include <thread>
 using namespace std;
 
 #define BUFFER_SIZE 4096
@@ -90,7 +91,19 @@ void option1(SocketIO sock) {
         }
         path = bv.splitEnd(line, '/', 1);
         sock.write(to_string(path[0].size()) + "-" + path[0]);
-        file1.sendFile(sock);
+        line = sock.read();
+        if (line == "1-") {
+            cout << "error" << endl;
+            return;
+        }
+        if (line == "invalid input") {
+            cout << line << endl;
+            sock.write("0-");
+            return;
+        }
+        if (!file1.sendFile(sock)) {
+            return;
+        }
     }
 }
 
@@ -104,6 +117,41 @@ void option2(SocketIO sock) {
         cout << line << endl;
     }
     sock.write("0-");
+}
+
+void option5(SocketIO sock) {
+    bool start = true;
+    string line;
+    getline(cin, line);
+    if (line.substr(line.find_last_of(".") + 1) != "csv") {
+        sock.write("1-");
+        cout << "invalid input" << endl;
+        return;
+    }
+    fstream file;
+    file.open(line, ios::out);
+    if (file.fail()) {
+	    file.clear();
+        sock.write("1-");
+        throw invalid_argument("Error, no file found!"); 
+    }
+    sock.write("0-");
+    while (true) {
+        line = sock.read();
+        if (line == "0-") {
+            sock.write("0-");
+            break;
+        }
+        line = line.substr(line.find('-') + 1);
+        if (start) {
+            start = false;
+            file << line;
+        } else {
+            file << "\n" + line;
+        }
+        sock.write("0-");
+        file.close();
+    }
 }
 
 /*
@@ -124,25 +172,31 @@ void KnnClient::activateClient() {
             continue;
         }
         switch (stoi(line)) {
-        case 1:
-            option1(sock);
-            break;
-        case 2:
-            option2(sock);
-            break;
-        case 3:
-            /* code */
-            break;
-        case 4:
-            /* code */
-            break;
-        case 5:
-            /* code */
-            break;
-        default:
-            close(m_socket);
-            return;
-            break;
+            case 1: {
+                option1(sock);
+                break;
+            }
+            case 2: {
+                option2(sock);
+                break;
+            }
+            case 3: {
+                /* code */
+                break;
+            }
+            case 4: {
+                /* code */
+                break;
+            }
+            case 5:
+                /*thread t(option5, sock);
+                t.join();
+                break;*/
+                option5(sock);
+            default: {
+                return;
+                break;
+            }
         }
 
     }

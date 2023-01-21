@@ -9,7 +9,7 @@
 #include <unistd.h>
 #include "Settings.h"
 #include "Upload.h"
-
+#include "Download.h"
 
 #define BUFFER_SIZE 4096
 
@@ -18,9 +18,13 @@ CLI::CLI(int client, int socket) {
     m_k = 5;
     m_client = client;
     m_socket = socket;
+    m_canSend = m_haveFiles = false;
     m_command.push_back(new Settings(client, &m_k, &m_mat));
-    m_command.push_back(new Upload(client, &m_pathTrain, &m_pathTrain));
+    m_command.push_back(new Upload(client, &m_pathTrain, &m_pathWrite, &m_haveFiles));
     m_command.push_back(new Settings(client, &m_k, &m_mat));
+    m_command.push_back(new Settings(client, &m_k, &m_mat));
+    m_command.push_back(new Settings(client, &m_k, &m_mat));
+    m_command.push_back(new Download(client, &m_pathWrite, &m_canSend));
 }
 
 bool validChos(string choose) {
@@ -45,13 +49,16 @@ void CLI::start() {
         }
         sock.write(rec);
         sock.read();
+        if (rec == "8") {
+            return;
+        }
         m_command[stoi(rec)]->execute();
     }
 }
 
 CLI::~CLI() {
-    for (int i = m_command.size(); i >= 0; i++) {
+    for (int i = m_command.size() - 1; i >= 0; i--) {
         delete m_command[i];
     }
-    close(m_socket);
+    close(m_client);
 }

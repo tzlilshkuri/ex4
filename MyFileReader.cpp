@@ -21,7 +21,7 @@ void MyFileReader::load(string path) {
     std::string fn = path;
     if (fn.substr(fn.find_last_of(".") + 1) != "csv") {
         throw invalid_argument("Error, type of file does not match!");
-    } 
+    }
     m_myFile.open(path); 
     if (m_myFile.fail()) {
 	    m_myFile.clear();
@@ -83,51 +83,73 @@ bool MyFileReader::sendFile(SocketIO socket) {
     string line;
     while (getline(m_myFile, line)) {
         socket.write(to_string(line.size()) + "-" + line);
-        if (socket.read() == "invalid input") {
+        line = socket.read();
+        if (line == "invalid input") {
+            cout << line << endl;
+            socket.write("0-");
             return false;
         }
     }
     socket.write("1-");
     cout << socket.read() << endl;
+    socket.write("0-");
     return true;
 }
 
-int validLine(vector<string> vec, int test) {
-    BuildVector bv;
-    if (vec[0] != "AUC" && vec[0] != "MIN" && vec[0] != "CHB" 
-    && vec[0] != "MAN" && vec[0] != "CAN" && !test) {
-        return 0;
-    }
-    return bv.makeNewVector(vec[1 - test], ',').size();
-}
-
 bool MyFileReader::create(string path, DefaultIO* socket, int* vecSize, int test) {
-    m_myFile.open(path, ios::in | ios::out);
+    m_myFile.open(path, ios::out);
+    if (m_myFile.fail()) {
+	    m_myFile.clear();
+        socket->write("1-");
+        throw invalid_argument("Error, no file found!"); 
+    }
+    socket->write("0-");
     string line = "";
-    BuildVector bv;
-    vector<string> vec;
+    bool first = true;
     while (true) {
+        BuildVector bv;
+        vector<string> vec;
+        vector<double> attr;
         line = socket->read();
         if (line == "1-") {
             break;
         }
         if (line == "0-") {
             socket->write("invalid input");
-            remove(path.c_str());
+            socket->read();
             return false;
         }
         line = line.substr(line.find('-') + 1);
-        vec = bv.splitEnd(line, ',', 1 - test);
-        if (*vecSize == -1) {
-            *vecSize = validLine(vec, test);
+        if (line[line.size() - 1] == '\r') {
+            line.pop_back();
         }
-        if (validLine(vec, test) && *vecSize == validLine(vec, test)) {
+        vec = bv.splitEnd(line, ',', 1 - test);
+        attr = bv.makeNewVector(vec[1 - test], ',');
+        if (*vecSize < 1) {
+            *vecSize = attr.size();
+        }
+        if (attr.size() && *vecSize == attr.size() && vec[0] != "") {
             socket->write("1");
         } else {
             socket->write("invalid input");
-            remove(path.c_str());
+            socket->read();
             return false;
         }
+        if (first) {
+            m_myFile << line;
+            first = false;
+        } else {
+            m_myFile << "\n" + line;
+        }
     }
+    socket->write("Upload complete.");
+    socket->read();
     return true;
+}
+
+void MyFileReader::printAll() {
+    string line;
+    while (getline(m_myFile, line)) {
+        cout << line << endl;
+    }
 }
