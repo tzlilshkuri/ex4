@@ -14,6 +14,7 @@ private:
     string m_mat;
     string m_pathTrain;
     string m_pathWrite;
+    vector<string> mys; 
 public:
     CLI(int client, int socket);
     /*

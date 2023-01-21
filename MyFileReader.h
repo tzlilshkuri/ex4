@@ -52,6 +52,8 @@ public:
 
     bool create(string path, DefaultIO* socket, int* vecSize, int test);
 
+    void printAll();
+
     string read();
 };
 

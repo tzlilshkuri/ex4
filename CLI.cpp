@@ -9,6 +9,8 @@
 #include <unistd.h>
 #include "Settings.h"
 #include "Upload.h"
+#include "Update.h"
+#include "PrintAll.h"
 
 
 #define BUFFER_SIZE 4096
@@ -21,6 +23,8 @@ CLI::CLI(int client, int socket) {
     m_command.push_back(new Settings(client, &m_k, &m_mat));
     m_command.push_back(new Upload(client, &m_pathTrain, &m_pathTrain));
     m_command.push_back(new Settings(client, &m_k, &m_mat));
+    m_command.push_back(new Update(client, &m_pathTrain, &m_pathWrite,&m_k, &m_mat, &mys));
+    m_command.push_back(new PrintAll(client, &m_pathTrain, &mys));
 }
 
 bool validChos(string choose) {

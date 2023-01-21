@@ -88,8 +88,19 @@ void option1(SocketIO sock) {
             sock.write("1-");
             return;
         }
+        //file1.printAll();
         path = bv.splitEnd(line, '/', 1);
         sock.write(to_string(path[0].size()) + "-" + path[0]);
+        line = sock.read();
+        if (line == "1-") {
+            cout << "error" << endl;
+            return;
+        }
+        if (line == "invalid input") {
+            cout << line << endl;
+            sock.write("0-");
+            return;
+        }
         file1.sendFile(sock);
     }
 }
@@ -104,6 +115,19 @@ void option2(SocketIO sock) {
         cout << line << endl;
     }
     sock.write("0-");
+}
+
+void option4(SocketIO sock) {
+    string line="";
+    while (true) {
+        line = sock.read();
+        sock.write("0-");
+        if (line == "0-")
+        {
+            break;
+        }
+        cout << line <<endl;
+    }
 }
 
 /*
@@ -131,10 +155,9 @@ void KnnClient::activateClient() {
             option2(sock);
             break;
         case 3:
-            /* code */
             break;
         case 4:
-            /* code */
+            option4(sock);
             break;
         case 5:
             /* code */
