@@ -208,7 +208,7 @@ Every user have a menu with 6 options : <br/>
 <img width="250" alt="menu" src="https://user-images.githubusercontent.com/118110474/213927487-fd363aac-84e4-41a5-aa29-b4b9f6c19fb3.PNG">
 
 ##### Option 1-
-<img width="550" alt="1" src="https://user-images.githubusercontent.com/118110474/213927493-be6feb74-0255-4665-bbdf-4d6d2488a9f2.PNG">
+<img width="450" alt="1" src="https://user-images.githubusercontent.com/118110474/213927493-be6feb74-0255-4665-bbdf-4d6d2488a9f2.PNG">
 
 ##### Option 2-
 <img width="350" alt="rr" src="https://user-images.githubusercontent.com/118110474/213927715-8701c638-41c3-40f4-8527-e091bd96acf4.PNG">
@@ -219,7 +219,7 @@ Every user have a menu with 6 options : <br/>
 ##### Option 3- Just update.
 
 ##### Option 4-
-<img width="18" alt="4" src="https://user-images.githubusercontent.com/118110474/213927537-50c3628c-1aba-4527-bc18-6ea98ffd017f.PNG">
+<img width="418" alt="4" src="https://user-images.githubusercontent.com/118110474/213927537-50c3628c-1aba-4527-bc18-6ea98ffd017f.PNG">
 
 
 ##### Option 5-
