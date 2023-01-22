@@ -172,6 +172,8 @@ Every user have a menu with 6 options : <br/>
 #### Explation about our classes: <br />
 
 ##### Command Class- <br />
+אעאTT
+אאיןג
 
 ##### Upload Class- <br />
 
@@ -196,7 +198,7 @@ Every user have a menu with 6 options : <br/>
 #### Photos: <br />
 
 ##### make-
-<img width="761" alt="make" src="https://user-images.githubusercontent.com/118110474/213927465-83d216a1-3c2c-4b6b-9ca7-86ddea67325c.PNG">
+<img width="820" alt="make" src="https://user-images.githubusercontent.com/118110474/213927465-83d216a1-3c2c-4b6b-9ca7-86ddea67325c.PNG">
 
 
 ##### Open Server-
@@ -207,7 +209,7 @@ Every user have a menu with 6 options : <br/>
 <img width="450" alt="client" src="https://user-images.githubusercontent.com/118110474/213927480-d823fa71-082d-4ec7-bc39-132adb0a46a3.PNG">
 
 ##### menu-
-<img width="450" alt="mm" src="https://user-images.githubusercontent.com/118110474/213927890-889de7c0-48ba-4e46-befd-522df2119871.PNG">
+<img width="480" alt="mm" src="https://user-images.githubusercontent.com/118110474/213927890-889de7c0-48ba-4e46-befd-522df2119871.PNG">
 
 
 ##### Option 1-
