@@ -24,6 +24,7 @@ After writing the make we can run the program in this part we make two ".out" fi
 `g++` - the compiler. <br />
 `FileName.cpp` - all the cpp files names we want to compile togther. <br />
 `-std=c++11` - the vertion of the language. <br />
+`-lpthread` - flag for the threads. <br />
 `-o server.out` - changing the output name to server.out 
 
 ## Description-
