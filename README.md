@@ -207,11 +207,11 @@ Every user have a menu with 6 options : <br/>
 <img width="350" alt="client" src="https://user-images.githubusercontent.com/118110474/213927480-d823fa71-082d-4ec7-bc39-132adb0a46a3.PNG">
 
 ##### menu-
-<img width="398" alt="mm" src="https://user-images.githubusercontent.com/118110474/213927890-889de7c0-48ba-4e46-befd-522df2119871.PNG">
+<img width="450" alt="mm" src="https://user-images.githubusercontent.com/118110474/213927890-889de7c0-48ba-4e46-befd-522df2119871.PNG">
 
 
 ##### Option 1-
-<img width="450" alt="1" src="https://user-images.githubusercontent.com/118110474/213927493-be6feb74-0255-4665-bbdf-4d6d2488a9f2.PNG">
+<img width="400" alt="1" src="https://user-images.githubusercontent.com/118110474/213927493-be6feb74-0255-4665-bbdf-4d6d2488a9f2.PNG">
 
 ##### Option 2-
 <img width="450" alt="rr" src="https://user-images.githubusercontent.com/118110474/213927715-8701c638-41c3-40f4-8527-e091bd96acf4.PNG">
