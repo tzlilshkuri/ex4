@@ -172,28 +172,40 @@ Every user have a menu with 6 options : <br/>
 #### Explation about our classes: <br />
 
 ##### Command Class- <br />
+This class is a virtual class that all the option (except from 8) inherit her.  <br />
+The important function in this class is "excute" that using from implement that option the client choose.
 אעאTT
-אאיןג
-
+אא
 ##### Upload Class- <br />
+This class
 
 ##### Settings Class- <br />
+This class let the client change the matrics calculation and k nearest neighbors that are used for classify data.
 
 ##### Update Class- <br />
+This class update the classification the user asked for.
 
 ##### PrintAll Class- <br />
+This class print the result in the classification the user asked for.  <br />
+if there in no file the user will get the message "please upload data".  <br />
+If there in no classification the user will get the message "please classify the data.".  <br />
 
 ##### Downloads Class- <br />
+This class put the classification result the user asked for in csv file. <br />
+if there in no file the user will get the message "please upload data".  <br />
+If there in no classification the user will get the message "please classify the data.".  <br />
 
 ##### CLI Class- <br />
+This class
 
 ##### DefultIO Class- <br />
-
-##### FiloIO Class- <br />
+This class let as choose in which IO we want to use (defaultIO \ SocketIO).
 
 ##### SOCKETIO Class- <br />
+This class has the function "read" and "write" that use to send data from the client and send him messages.
 
 ##### StandrdIO Class- <br />
+This class let us read and write in the standerd way- keyboard and screen.
 
 #### Photos: <br />
 
