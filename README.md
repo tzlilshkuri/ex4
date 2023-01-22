@@ -200,11 +200,11 @@ Every user have a menu with 6 options : <br/>
 
 
 ##### Open Server-
-<img width="280" alt="server" src="https://user-images.githubusercontent.com/118110474/213927472-4214178f-36ae-4766-a865-0a0e89f39ad2.PNG">
+<img width="380" alt="server" src="https://user-images.githubusercontent.com/118110474/213927472-4214178f-36ae-4766-a865-0a0e89f39ad2.PNG">
 
 
 ##### Open Client-
-<img width="350" alt="client" src="https://user-images.githubusercontent.com/118110474/213927480-d823fa71-082d-4ec7-bc39-132adb0a46a3.PNG">
+<img width="450" alt="client" src="https://user-images.githubusercontent.com/118110474/213927480-d823fa71-082d-4ec7-bc39-132adb0a46a3.PNG">
 
 ##### menu-
 <img width="450" alt="mm" src="https://user-images.githubusercontent.com/118110474/213927890-889de7c0-48ba-4e46-befd-522df2119871.PNG">
@@ -222,7 +222,7 @@ Every user have a menu with 6 options : <br/>
 ##### Option 3- Just update.
 
 ##### Option 4-
-<img width="218" alt="4" src="https://user-images.githubusercontent.com/118110474/213927537-50c3628c-1aba-4527-bc18-6ea98ffd017f.PNG">
+<img width="200" alt="4" src="https://user-images.githubusercontent.com/118110474/213927537-50c3628c-1aba-4527-bc18-6ea98ffd017f.PNG">
 
 
 ##### Option 5-
