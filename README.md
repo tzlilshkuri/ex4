@@ -177,7 +177,7 @@ The important function in this class is "excute" that using from implement that 
 אעאTT
 אא
 ##### Upload Class- <br />
-This class
+This class let the user upload two files- classified and unclassified.
 
 ##### Settings Class- <br />
 This class let the client change the matrics calculation and k nearest neighbors that are used for classify data.
