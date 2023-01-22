@@ -12,8 +12,7 @@ Nir's and Tzlil's project - Ex4
 
 Compile line - `make`
 
-Run line for opening server - `./server.out File Port` <br />
-`File` - path to file <br />
+Run line for opening server - `./server.out Port` <br />
 Run line for opening client - `./client Ip Port` <br />
 `Ip` - the ip of the server <br />
 `Port` - the port that the clinet and the server comunicate. <br />
