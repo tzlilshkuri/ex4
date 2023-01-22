@@ -14,26 +14,37 @@
 #include "Download.h"
 
 #define BUFFER_SIZE 4096
-
+/*
+client - the client's id socket
+socket - the server's id socket
+constructor
+*/
 CLI::CLI(int client, int socket) {
     m_mat = "AUC";
     m_k = 5;
     m_client = client;
     m_socket = socket;
-    m_canSend = m_haveFiles = false;
+    m_haveFiles = false;
     m_command.push_back(new Settings(client, &m_k, &m_mat));
     m_command.push_back(new Upload(client, &m_pathTrain, &m_pathWrite, &m_haveFiles));
     m_command.push_back(new Settings(client, &m_k, &m_mat));
-    m_command.push_back(new Update(client, &m_pathTrain, &m_pathWrite,&m_k, &m_mat, &mys));
-    m_command.push_back(new PrintAll(client, &m_pathTrain, &mys));
-    m_command.push_back(new Download(client, &m_pathWrite, &m_canSend));
+    m_command.push_back(new Update(client, &m_pathTrain, &m_pathWrite,&m_k, &m_mat, &m_mys, &m_haveFiles));
+    m_command.push_back(new PrintAll(client, &m_mys, &m_haveFiles));
+    m_command.push_back(new Download(client, &m_mys, &m_haveFiles));
 }
 
+/*
+choose - the choose of the client
+the function return true if the client choose valid option else return false
+*/
 bool validChos(string choose) {
     return choose == "1" || choose == "2" || choose == "3" || choose == "4" || choose == "5" 
     || choose == "8";
 }
 
+/*
+the function activate the cli
+*/
 void CLI::start() {
     string menu = "Welcome to the KNN Calssifier Server. Please choose an option:\n" 
                     "1. upload an unclassified csv data file\n2. algorithm settings\n"
@@ -58,6 +69,9 @@ void CLI::start() {
     }
 }
 
+/*
+destructor
+*/
 CLI::~CLI() {
     for (int i = m_command.size() - 1; i >= 0; i--) {
         delete m_command[i];

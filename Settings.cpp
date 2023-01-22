@@ -1,7 +1,12 @@
 #include "Settings.h"
 #include "BuildVector.h"
 
-
+/*
+client - client's id of the socket
+m_k - pointer to the updated k nearest
+m_mat - pointer to the updated matric calculation
+constructor
+*/
 Settings::Settings(int client, int* k, string* mat) {
     m_description = "2";
     m_dio = new SocketIO(client);
@@ -9,6 +14,10 @@ Settings::Settings(int client, int* k, string* mat) {
     m_mat = mat;
 }
 
+/*
+k - the optional k nearest
+the function return true if k is a valid val for k
+*/
 bool validK(string k) {
     for (int i = 0; i < k.size(); i++) {
         if (k[i] < '0' || k[i] > '9') {
@@ -21,6 +30,9 @@ bool validK(string k) {
     return true;
 }
 
+/*
+the function that activate the command
+*/
 void Settings::execute() {
     m_dio->write("The current KNN parameters are: k = " + to_string(*m_k)
      + ", distance metric = " + *m_mat);
@@ -59,6 +71,9 @@ void Settings::execute() {
     m_dio->read();
 }
 
+/*
+destructor
+*/
 Settings::~Settings() {
     delete m_dio;
 }

@@ -6,13 +6,28 @@
 
 using namespace std;
 
-class Download : public Command{
+/*
+the commnd that download the file to our computer
+*/
+class Download : public Command {
 private:
-    bool* m_send;
-    string* m_path;
+    vector<string>* m_mys;
+    bool* m_haveFiles;
 public:
-    Download(int client, string* path, bool* m_send);
+    /*
+    client - client's id socket
+    mys - pointer to the types of the flowers
+    haveFiles - pointer that tell me if i upload files
+    constructor
+    */
+    Download(int client, vector<string>* mys, bool* haveFiles);
+    /*
+    the function that activate the command
+    */
     void execute();
+    /*
+    destructor
+    */
     ~Download();
 };
 

@@ -5,12 +5,18 @@
 
 using namespace std;
 
+/*
+abstruct class that represent the commands
+*/
 class Command {
 protected:
     string m_description;
     DefaultIO* m_dio;
 public:
-    virtual void execute() = 0; //may call load for files
+    /*
+    the function that activate the command
+    */
+    virtual void execute() = 0;
 };
 
 #endif

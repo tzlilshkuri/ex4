@@ -12,7 +12,6 @@
 #include <stdexcept>
 #include "SocketIO.h"
 #include "MyFileReader.h"
-#include <thread>
 using namespace std;
 
 #define BUFFER_SIZE 4096
@@ -55,25 +54,9 @@ void KnnClient::openSocket() {
 }
 
 /*
-myVector- the input we want to send the server- vector, distance and K neighbors.
-this function check if the distance and port are valid.
+sock - socket communication to the server
+the function send files to the server
 */
-bool KnnClient::isValidFields(vector<string> myVector) {
-    if (myVector[1] != "MAN" && myVector[1] != "MIN" && myVector[1] != "AUC" &&
-        myVector[1] != "CAN" && myVector[1] != "CHB") {
-        return false;
-    }
-    for (int i = 0; i < myVector[0].size(); i++) {
-        if (myVector[0][i] < '0' || myVector[0][i] > '9') {
-            return false;
-            }  
-    }
-    if (myVector[0] == "" || !stoi(myVector[0])) {
-        return false;
-    } 
-    return true;
-}
-
 void option1(SocketIO sock) {
     string line;
     BuildVector bv;
@@ -89,7 +72,6 @@ void option1(SocketIO sock) {
             sock.write("1-");
             return;
         }
-        //file1.printAll();
         path = bv.splitEnd(line, '/', 1);
         sock.write(to_string(path[0].size()) + "-" + path[0]);
         line = sock.read();
@@ -108,6 +90,10 @@ void option1(SocketIO sock) {
     }
 }
 
+/*
+sock - socket communication to the server
+the function deliver the k neares and the matric to the server
+*/
 void option2(SocketIO sock) {
     string line;
     cout << sock.read() << endl;
@@ -120,21 +106,57 @@ void option2(SocketIO sock) {
     sock.write("0-");
 }
 
+/*
+sock - socket communication to the server
+the function clasiffied the unclassified file in the server
+*/
+void option3(SocketIO sock) {
+    string line="";
+    line = sock.read();
+    if (line != "0-"){
+        cout << line <<endl;
+    }
+    sock.write("0-");
+}
 
+/*
+sock - socket communication to the server
+the function get the classified values of the unclassified file and print it
+*/
 void option4(SocketIO sock) {
+    string s = sock.read();
+    if (s != "0-"){
+        cout << s << endl;
+        sock.write("0-");
+        return;
+    }
+    sock.write("0-");
     string line="";
     while (true) {
         line = sock.read();
         sock.write("0-");
-        if (line == "0-")
+        if (line == "Done.")
         {
+            cout << line <<endl;
             break;
         }
         cout << line <<endl;
+    }
+}
 
+/*
+sock - socket communication to the server
+the function get the classified values of the unclassified file andsave it in a file
+*/
 void option5(SocketIO sock) {
     bool start = true;
     string line;
+    line = sock.read();
+    if (line != "0-") {
+        cout << line << endl;
+        sock.write("0-");
+        return;
+    }
     getline(cin, line);
     if (line.substr(line.find_last_of(".") + 1) != "csv") {
         sock.write("1-");
@@ -163,12 +185,12 @@ void option5(SocketIO sock) {
             file << "\n" + line;
         }
         sock.write("0-");
-        file.close();
     }
+    file.close();
 }
 
 /*
-this function open the server.
+this function shows the menu to the user and activate the command in the server
 */
 void KnnClient::activateClient() {
     string line;
@@ -194,17 +216,18 @@ void KnnClient::activateClient() {
                 break;
             }
             case 3: {
+                option3(sock);
                 break;
             }
             case 4: {
                 option4(sock);
                 break;
             }
-            case 5:
-                /*thread t(option5, sock);
+            case 5: {
+                thread t(option5, sock);
                 t.join();
-                break;*/
-                option5(sock);
+                break;
+            }
             default: {
                 return;
                 break;

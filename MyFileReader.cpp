@@ -69,16 +69,10 @@ vector<Flower> MyFileReader::getGarden() {
     return m_myGarden;
 }
 
-void MyFileReader::write(string data) {
-    m_myFile << data;
-}
-
-string MyFileReader::read() {
-    string line;
-    getline(m_myFile, line);
-    return line;
-}
-
+/*
+socket - socket to communicate with
+the function return true if the file send cimplete else false
+*/
 bool MyFileReader::sendFile(SocketIO socket) {
     string line;
     while (getline(m_myFile, line)) {
@@ -96,6 +90,13 @@ bool MyFileReader::sendFile(SocketIO socket) {
     return true;
 }
 
+/*
+path - path to file
+socket - socket to communicate with
+vecSize - the vector size in our file
+test - tell me in which file i am
+the function return true if he comletle create the files
+*/
 bool MyFileReader::create(string path, DefaultIO* socket, int* vecSize, int test) {
     m_myFile.open(path, ios::out);
     if (m_myFile.fail()) {
@@ -147,11 +148,4 @@ bool MyFileReader::create(string path, DefaultIO* socket, int* vecSize, int test
     socket->write("Upload complete.");
     socket->read();
     return true;
-}
-
-void MyFileReader::printAll() {
-    string line;
-    while (getline(m_myFile, line)) {
-        cout << line << endl;
-    }
 }

@@ -5,6 +5,10 @@
 
 using namespace std;
 
+/*
+this class is talked directly to a client and every client has a
+cli that he talked with him
+*/
 class CLI {
 private:
     vector<Command*> m_command;
@@ -12,14 +16,24 @@ private:
     int m_k;
     int m_client;
     bool m_haveFiles;
-    bool m_canSend;
     string m_mat;
     string m_pathTrain;
     string m_pathWrite;
-    vector<string> mys; 
+    vector<string> m_mys; 
 public:
+    /*
+    client - the client's id socket
+    socket - the server's id socket
+    constructor
+    */
     CLI(int client, int socket);
+    /*
+    the function activate the cli
+    */
     void start();
+    /*
+    distructor
+    */
     ~CLI();
 };
 

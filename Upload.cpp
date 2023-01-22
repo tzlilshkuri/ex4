@@ -1,5 +1,12 @@
 #include "Upload.h"
 
+/*
+client - the client's id for socket
+pathTrain - pointer to the updates path of the classified file
+pathWrite - pointer to the updates path of the unclassified file
+haveFiles - tell me if i have files or not
+constructor
+*/
 Upload::Upload(int client, string* pathTrain, string* pathWrite, bool *haveFiles) {
     m_dio = new SocketIO(client);
     m_description = "1";
@@ -9,6 +16,9 @@ Upload::Upload(int client, string* pathTrain, string* pathWrite, bool *haveFiles
     m_client = client;
 }
 
+/*
+the function that activate the command
+*/
 void Upload::execute(){
     int vecSize = -1;
     string line = "", pathT;
@@ -55,6 +65,9 @@ void Upload::execute(){
     *m_pathWrite = line;
 }
 
+/*
+destructor
+*/
 Upload::~Upload() {
     delete m_dio;
 }

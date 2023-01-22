@@ -62,10 +62,10 @@ double calcDiss(Flower flowerGar, Flower flowerCheck, string calc) {
 }
 
 /*
-    flower - the flower i want to calculate the distance to
-    k - numer of the closest flower
-    calc - by which calculator i want to use
-    the method return the k closest flower in vector
+flower - the flower i want to calculate the distance to
+k - numer of the closest flower
+calc - by which calculator i want to use
+the method return the k closest flower in vector
 */
 vector<Flower> Garden::getKSmallest(Flower flower, int k, string calc) {
     vector<Flower> smallK;

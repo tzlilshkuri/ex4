@@ -58,10 +58,8 @@ void KnnServer::load() {
 
 /*
 the function run without stop(unless connection issues)
-the function run and connect to a client and recive vector matric calculation
-and k nearest in the socket and send the the result of the calculation
+the function run and connect to a client and connect them to CLI
 */
-
 void KnnServer::recAndSend() {
     while (true) {
         struct sockaddr_in client_sin;

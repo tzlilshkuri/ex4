@@ -45,16 +45,19 @@ public:
     This function load the path.
     */
     void load(string path);
-
-    void write(string data);
-
+    /*
+    socket - socket to communicate with
+    the function return true if the file send cimplete else false
+    */
     bool sendFile(SocketIO socket);
-
+    /*
+    path - path to file
+    socket - socket to communicate with
+    vecSize - the vector size in our file
+    test - tell me in which file i am
+    the function return true if he comletle create the files
+    */
     bool create(string path, DefaultIO* socket, int* vecSize, int test);
-
-    void printAll();
-
-    string read();
 };
 
 #endif

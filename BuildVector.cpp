@@ -40,6 +40,11 @@ vector<double> BuildVector::makeNewVector(string line, char sep) {
     return ret;
 }
 
+/*
+str - the string i want to reverse
+len - the length of the string
+the function return the rvevese string of str
+*/
 string reverse(string str, int len) {
     char tmp;
     for (int i = 0; i < len / 2; i++) {
