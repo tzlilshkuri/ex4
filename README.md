@@ -211,7 +211,7 @@ Every user have a menu with 6 options : <br/>
 <img width="450" alt="1" src="https://user-images.githubusercontent.com/118110474/213927493-be6feb74-0255-4665-bbdf-4d6d2488a9f2.PNG">
 
 ##### Option 2-
-<img width="350" alt="rr" src="https://user-images.githubusercontent.com/118110474/213927715-8701c638-41c3-40f4-8527-e091bd96acf4.PNG">
+<img width="450" alt="rr" src="https://user-images.githubusercontent.com/118110474/213927715-8701c638-41c3-40f4-8527-e091bd96acf4.PNG">
 
 
 <img width="550" alt="e2" src="https://user-images.githubusercontent.com/118110474/213927513-e2728a51-5f0b-47b7-a7ea-96f73f7e3ec6.PNG">
