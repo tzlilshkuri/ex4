@@ -196,7 +196,7 @@ if there in no file the user will get the message "please upload data".  <br />
 If there in no classification the user will get the message "please classify the data.".  <br />
 
 ##### CLI Class- <br />
-This class
+This class has the method "start", she check if the user enter a valid number in the option and than call the function "excute" in the correct class.
 
 ##### DefultIO Class- <br />
 This class let as choose in which IO we want to use (defaultIO \ SocketIO).
