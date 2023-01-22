@@ -205,22 +205,22 @@ Every user have a menu with 6 options : <br/>
 <img width="303" alt="client" src="https://user-images.githubusercontent.com/118110474/213927480-d823fa71-082d-4ec7-bc39-132adb0a46a3.PNG">
 
 ##### menu-
-![menu](https://user-images.githubusercontent.com/118110474/213927487-fd363aac-84e4-41a5-aa29-b4b9f6c19fb3.PNG)
+<img width="450" alt="menu" src="https://user-images.githubusercontent.com/118110474/213927487-fd363aac-84e4-41a5-aa29-b4b9f6c19fb3.PNG">
 
 ##### Option 1-
-<img width="265" alt="1" src="https://user-images.githubusercontent.com/118110474/213927493-be6feb74-0255-4665-bbdf-4d6d2488a9f2.PNG">
+<img width="450" alt="1" src="https://user-images.githubusercontent.com/118110474/213927493-be6feb74-0255-4665-bbdf-4d6d2488a9f2.PNG">
 
 ##### Option 2-
-<img width="407" alt="e" src="https://user-images.githubusercontent.com/118110474/213927510-21a9618f-8fd1-4d53-96d6-9a330ef56703.PNG">
+<img width="450" alt="e" src="https://user-images.githubusercontent.com/118110474/213927510-21a9618f-8fd1-4d53-96d6-9a330ef56703.PNG">
 
-<img width="372" alt="e2" src="https://user-images.githubusercontent.com/118110474/213927513-e2728a51-5f0b-47b7-a7ea-96f73f7e3ec6.PNG">
+<img width="450" alt="e2" src="https://user-images.githubusercontent.com/118110474/213927513-e2728a51-5f0b-47b7-a7ea-96f73f7e3ec6.PNG">
 
 ##### Option 3- Just update.
 
 ##### Option 4-
-<img width="126" alt="4" src="https://user-images.githubusercontent.com/118110474/213927537-50c3628c-1aba-4527-bc18-6ea98ffd017f.PNG">
+<img width="18" alt="4" src="https://user-images.githubusercontent.com/118110474/213927537-50c3628c-1aba-4527-bc18-6ea98ffd017f.PNG">
 
 
 ##### Option 5-
-<img width="61" alt="dd" src="https://user-images.githubusercontent.com/118110474/213927541-426a238e-76cf-4909-ac25-0a08c0045a76.PNG">
+<img width="200" alt="dd" src="https://user-images.githubusercontent.com/118110474/213927541-426a238e-76cf-4909-ac25-0a08c0045a76.PNG">
 
