@@ -177,13 +177,14 @@ The important function in this class is "excute" that using from implement that 
 אעאTT
 אא
 ##### Upload Class- <br />
-This class let the user upload two files- classified and unclassified.
+This class let the user upload two .csv files- classified and unclassified.
 
 ##### Settings Class- <br />
-This class let the client change the matrics calculation and k nearest neighbors that are used for classify data.
+This class let the client change the matrics calculation and k nearest neighbors that are used for classify data. the default is k = 5, mat = "AUC" <br />
+if we get 1 arg it will be the k but the mat = "" and then send error if it will send more then 2 args the last arg will be the mat and the rest is the k
 
 ##### Update Class- <br />
-This class update the classification the user asked for.
+This class update the classification the user asked for in the server.
 
 ##### PrintAll Class- <br />
 This class print the result in the classification the user asked for.  <br />
