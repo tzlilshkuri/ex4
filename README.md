@@ -219,7 +219,7 @@ Every user have a menu with 6 options : <br/>
 ##### Option 3- Just update.
 
 ##### Option 4-
-<img width="418" alt="4" src="https://user-images.githubusercontent.com/118110474/213927537-50c3628c-1aba-4527-bc18-6ea98ffd017f.PNG">
+<img width="218" alt="4" src="https://user-images.githubusercontent.com/118110474/213927537-50c3628c-1aba-4527-bc18-6ea98ffd017f.PNG">
 
 
 ##### Option 5-
