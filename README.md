@@ -1,13 +1,13 @@
 # Mitkadem-1-project
-Nir's and Tzlil's project - Ex3
+Nir's and Tzlil's project - Ex4
 
 ## For cloning our project you need to do this following steps:<br />
 1.Enter the terminal.<br />
 2.Open a folder in your computer (In example call her "gitFolder').<br />
 3.Open the folder.<br />
 4.Do right click "open in terminal".<br />
-5.Write in the termninal "git clone https://github.com/NirAkay/Ex3.git".<br />
-6.Write in the termninal "cd Ex3".<br />
+5.Write in the termninal "git clone https://github.com/tzlilshkuri/ex4.git".<br />
+6.Write in the termninal "cd Ex4".<br />
 7.Use the instruction written below in the terminal to run the program.<br />
 
 Compile line - `make`
@@ -17,11 +17,6 @@ Run line for opening server - `./server.out File Port` <br />
 Run line for opening client - `./client Ip Port` <br />
 `Ip` - the ip of the server <br />
 `Port` - the port that the clinet and the server comunicate. <br />
-Run line for client input (after open client side) - `Vector CalculationMethod KNeighbors` <br />
-`Vector` - the vector i want to check <br />
-`CalculationMethod` - matrics calculation <br />
-`KNeighbors` - k nearest neighbors
-
 
 ##### What is the make?
 In the Makefile we write which parts of a program need to be compile. <br />
@@ -161,3 +156,35 @@ After we start the client side will run endlessly (and return the vector type) u
 Example of client input:<br />
 <img width="450" alt="חלק 2" src="https://user-images.githubusercontent.com/118110474/209807738-fd6807d5-3473-4979-9bfb-f8396dde903e.PNG">
 
+
+### ex4
+In this part we need to implement a server that is divided into 2 parts: Server side and Client side. <br/>
+Every user have a menu with 6 options : <br/>
+`1. upload an unclassified csv data` - In this option the client upload two files- classified and unclassified.<br />
+`2. algorithm settings` - In this option the client can change the matrics calculation and the k nearest neighbors the helo us classified every flour (or anything else).  <br />
+`3. classify data` - In this option we classify the unclisiffied file we recive in option 1 .<br />
+`4. display results` - In this option we display the results of the classificition we made in option 3. <br />
+`5. download results` -In this option  <br />
+`8. exit` - In this option the client exit from the server(the server still stay open) <br />
+
+#### Explation about our classes:
+
+##### Upload Class-
+
+##### Settings Class-
+
+##### Update Class-
+
+##### PrintAll Class-
+
+##### Downloads Class-
+
+##### CLI Class-
+
+##### DefultIO Class-
+
+##### FiloIO Class-
+
+##### SOCKETIO Class-
+
+##### StandrdIO Class-
