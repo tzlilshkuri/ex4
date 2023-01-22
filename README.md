@@ -158,6 +158,8 @@ Example of client input:<br />
 
 
 ### ex4
+<img width="250" alt="menu" src="https://user-images.githubusercontent.com/118110474/213927487-fd363aac-84e4-41a5-aa29-b4b9f6c19fb3.PNG">
+
 In this part we need to implement a server that is divided into 2 parts: Server side and Client side. <br/>
 Every user have a menu with 6 options : <br/>
 `1. upload an unclassified csv data` - In this option the client upload two files- classified and unclassified.<br />
@@ -205,7 +207,8 @@ Every user have a menu with 6 options : <br/>
 <img width="350" alt="client" src="https://user-images.githubusercontent.com/118110474/213927480-d823fa71-082d-4ec7-bc39-132adb0a46a3.PNG">
 
 ##### menu-
-<img width="250" alt="menu" src="https://user-images.githubusercontent.com/118110474/213927487-fd363aac-84e4-41a5-aa29-b4b9f6c19fb3.PNG">
+<img width="398" alt="mm" src="https://user-images.githubusercontent.com/118110474/213927890-889de7c0-48ba-4e46-befd-522df2119871.PNG">
+
 
 ##### Option 1-
 <img width="450" alt="1" src="https://user-images.githubusercontent.com/118110474/213927493-be6feb74-0255-4665-bbdf-4d6d2488a9f2.PNG">
