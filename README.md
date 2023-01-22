@@ -210,7 +210,7 @@ This class let us read and write in the standerd way- keyboard and screen.
 #### Photos: <br />
 
 ##### make-
-<img width="820" alt="make" src="https://user-images.githubusercontent.com/118110474/213927465-83d216a1-3c2c-4b6b-9ca7-86ddea67325c.PNG">
+<img width="920" alt="make" src="https://user-images.githubusercontent.com/118110474/213927465-83d216a1-3c2c-4b6b-9ca7-86ddea67325c.PNG">
 
 
 ##### Open Server-
