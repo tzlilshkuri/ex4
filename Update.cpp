@@ -42,8 +42,6 @@ void Update::execute() {
         m_dio->read();
         return;
     }
-    m_dio->write("0-");
-    m_dio->read();
     Garden mygarden;
     mygarden.load(*m_pathTrain);
     try {
@@ -55,6 +53,8 @@ void Update::execute() {
             f.updateType(mygarden.getKSmallest(f, *m_k, *m_mat));
             m_mys->push_back(f.getType());
         }
+        m_dio->write("classifying data complete");
+        m_dio->read();
         m_myFile.close();
     } catch(invalid_argument& x) {
         throw;

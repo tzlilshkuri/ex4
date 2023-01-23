@@ -111,8 +111,7 @@ sock - socket communication to the server
 the function clasiffied the unclassified file in the server
 */
 void option3(SocketIO sock) {
-    string line="";
-    line = sock.read();
+    string line = sock.read();
     if (line != "0-"){
         cout << line <<endl;
     }
@@ -131,13 +130,13 @@ void option4(SocketIO sock) {
         return;
     }
     sock.write("0-");
-    string line="";
+    string line = "";
     while (true) {
         line = sock.read();
         sock.write("0-");
-        if (line == "Done.")
-        {
+        if (line == "Done.") {
             cout << line <<endl;
+            getline(cin, line);
             break;
         }
         cout << line <<endl;
@@ -145,13 +144,48 @@ void option4(SocketIO sock) {
 }
 
 /*
+sock - socket connection to the server
+the function return all the types in the server
+*/
+vector<string> getTypes(SocketIO sock) {
+    vector<string> ret;
+    string line;
+    while (true) {
+        line = sock.read();
+        if (line == "0-") {
+            sock.write("0-");
+            break;
+        }
+        ret.push_back(line.substr(line.find('-') + 1));
+        sock.write("0-");
+    }
+    return ret;
+}
+
+/*
+types - the vector of the types in the server
+path - the path to file
+the function writes to file
+*/
+void writeToFile(vector<string> types, string path) {
+    fstream file;
+    file.open(path, ios::out);
+    for (int i = 0; i < types.size(); i++) {
+        if (!i) {
+            file << types[i];
+        } else {
+            file << "\n" + types[i];
+        }
+    }
+    file.close();
+}
+
+/*
 sock - socket communication to the server
 the function get the classified values of the unclassified file andsave it in a file
 */
 void option5(SocketIO sock) {
-    bool start = true;
-    string line;
-    line = sock.read();
+    string line = sock.read();
     if (line != "0-") {
         cout << line << endl;
         sock.write("0-");
@@ -163,30 +197,10 @@ void option5(SocketIO sock) {
         cout << "invalid input" << endl;
         return;
     }
-    fstream file;
-    file.open(line, ios::out);
-    if (file.fail()) {
-	    file.clear();
-        sock.write("1-");
-        throw invalid_argument("Error, no file found!"); 
-    }
     sock.write("0-");
-    while (true) {
-        line = sock.read();
-        if (line == "0-") {
-            sock.write("0-");
-            break;
-        }
-        line = line.substr(line.find('-') + 1);
-        if (start) {
-            start = false;
-            file << line;
-        } else {
-            file << "\n" + line;
-        }
-        sock.write("0-");
-    }
-    file.close();
+    vector<string> types = getTypes(sock);
+    thread t(writeToFile, types, line);
+    t.detach();
 }
 
 /*
@@ -224,8 +238,7 @@ void KnnClient::activateClient() {
                 break;
             }
             case 5: {
-                thread t(option5, sock);
-                t.join();
+                option5(sock);
                 break;
             }
             default: {
