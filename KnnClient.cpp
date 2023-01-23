@@ -153,7 +153,7 @@ vector<string> getTypes(SocketIO sock) {
     while (true) {
         line = sock.read();
         if (line == "0-") {
-            sock.write("0-");
+            //sock.write("0-");
             break;
         }
         ret.push_back(line.substr(line.find('-') + 1));
@@ -191,6 +191,8 @@ void option5(SocketIO sock) {
         sock.write("0-");
         return;
     }
+    sock.write("0-");
+    vector<string> types = getTypes(sock);
     getline(cin, line);
     if (line.substr(line.find_last_of(".") + 1) != "csv") {
         sock.write("1-");
@@ -198,7 +200,6 @@ void option5(SocketIO sock) {
         return;
     }
     sock.write("0-");
-    vector<string> types = getTypes(sock);
     thread t(writeToFile, types, line);
     t.detach();
 }
