@@ -42,7 +42,7 @@ void PrintAll::execute(){
     m_dio->write("0-");
     m_dio->read();
     for (int i = 0; i < m_mys->size(); i++) {
-        m_dio->write(to_string(i+1) + "  " + (*m_mys)[i]);
+        m_dio->write(to_string(i+1) + "\t" + (*m_mys)[i]);
         m_dio->read();     
     }
     m_dio->write("Done.");
