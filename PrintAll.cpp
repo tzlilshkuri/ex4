@@ -25,13 +25,13 @@ the function that activate the command
 void PrintAll::execute(){
     string error = "";
     if (m_mys->size() == 0) {
-        error= "please classify the data.";
+        error= "please classify the data";
     }
     if (!*m_haveFiles) {
         if (error == ""){
-            error = "please upload data.";
+            error = "please upload data";
         } else {
-            error = "please upload data.\n" + error;
+            error = "please upload data\n" + error;
         }
     }
     if (error != "") {

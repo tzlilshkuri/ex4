@@ -20,13 +20,13 @@ the function that activate the command
 void Download::execute() {
     string error = "0-";
     if (m_mys->size() == 0) {
-        error = "please classify the data.";
+        error = "please classify the data";
     }
     if (!*m_haveFiles) {
         if (error == "0-") {
-            error = "please upload data.";
+            error = "please upload data";
         } else {
-            error = "please upload data.\n" + error;
+            error = "please upload data\n" + error;
         }
     }
     m_dio->write(error);
@@ -41,10 +41,7 @@ void Download::execute() {
         m_dio->read();
     }
     m_dio->write("0-");
-    //m_dio->read();
-    if (m_dio->read() == "1-") {
-        return;
-    }
+    m_dio->read();
 }
 
 /*

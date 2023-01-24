@@ -38,7 +38,7 @@ the function that activate the command
 */
 void Update::execute() {
     if (!*m_haveFiles) {
-        m_dio->write("please upload data.");
+        m_dio->write("please upload data");
         m_dio->read();
         return;
     }
