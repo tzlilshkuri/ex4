@@ -181,20 +181,21 @@ This class let the user upload two .csv files- classified and unclassified.
 
 ##### Settings Class- <br />
 This class let the client change the matrics calculation and k nearest neighbors that are used for classify data. the default is k = 5, mat = "AUC" <br />
-if we get 1 arg it will be the k but the mat = "" and then send error if it will send more then 2 args the last arg will be the mat and the rest is the k
+if we get 1 arg it will be the k but the mat = "" and then send error for the mat. if it will send more then 2 args the last arg will be the mat and the rest is the k
 
 ##### Update Class- <br />
-This class update the classification the user asked for in the server.
+This class update the classification the user asked for in the server. create a vector of string in the server that contains the types of the <br />
+unclassified vector. and in the client if the update finish completely the server will send him "classifying data completed" else "please upload data"
 
 ##### PrintAll Class- <br />
 This class print the result in the classification the user asked for.  <br />
 if there in no file the user will get the message "please upload data".  <br />
-If there in no classification the user will get the message "please classify the data.".  <br />
+If there in no classification the user will get the message "please classify the data".  <br />
 
 ##### Downloads Class- <br />
 This class put the classification result the user asked for in csv file. <br />
 if there in no file the user will get the message "please upload data".  <br />
-If there in no classification the user will get the message "please classify the data.".  <br />
+If there in no classification the user will get the message "please classify the data".  <br />
 
 ##### CLI Class- <br />
 This class has the method "start", she check if the user enter a valid number in the option and than call the function "excute" in the correct class.
@@ -234,7 +235,8 @@ This class let us read and write in the standerd way- keyboard and screen.
 
 <img width="550" alt="e2" src="https://user-images.githubusercontent.com/118110474/213927513-e2728a51-5f0b-47b7-a7ea-96f73f7e3ec6.PNG">
 
-##### Option 3- Just update.
+##### Option 3- 
+<img width="240" alt="option3" src="https://user-images.githubusercontent.com/117992376/214293304-1ac26279-dc76-4b33-82f2-af8b6a0146c3.PNG">
 
 ##### Option 4-
 <img width="200" alt="4" src="https://user-images.githubusercontent.com/118110474/213927537-50c3628c-1aba-4527-bc18-6ea98ffd017f.PNG">
