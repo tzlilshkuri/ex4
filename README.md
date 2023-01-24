@@ -163,10 +163,10 @@ Example of client input:<br />
 In this part we need to implement a server that is divided into 2 parts: Server side and Client side. <br/>
 Every user have a menu with 6 options : <br/>
 `1. upload an unclassified csv data` - In this option the client upload two files- classified and unclassified.<br />
-`2. algorithm settings` - In this option the client can change the matrics calculation and the k nearest neighbors the helo us classified every flour (or anything else).  <br />
+`2. algorithm settings` - In this option the client can change the matrics calculation and the k nearest neighbors the helo us classified every flour (or anything else). the client need to enter the k and the mat with space that seperate them. <br />
 `3. classify data` - In this option we classify the unclisiffied file we recive in option 1 .<br />
 `4. display results` - In this option we display the results of the classificition we made in option 3. <br />
-`5. download results` -In this option  <br />
+`5. download results` -In this option we download the types of the unclassified file after we classified them <br />
 `8. exit` - In this option the client exit from the server(the server still stay open) <br />
 
 #### Explation about our classes: <br />
@@ -193,7 +193,7 @@ if there in no file the user will get the message "please upload data".  <br />
 If there in no classification the user will get the message "please classify the data".  <br />
 
 ##### Downloads Class- <br />
-This class put the classification result the user asked for in csv file. <br />
+This class put the classification result the user asked for a file. <br />
 if there in no file the user will get the message "please upload data".  <br />
 If there in no classification the user will get the message "please classify the data".  <br />
 
